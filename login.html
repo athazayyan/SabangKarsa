@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register - Visit Sabang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .auth-container {
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .auth-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .auth-tab.active {
+            background-color: #F59E0B;
+            color: black;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 1rem;
+            color: #6B7280;
+        }
+
+        .input-field {
+            padding-left: 3rem !important;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1rem;
+            color: #6B7280;
+            cursor: pointer;
+        }
+
+        .form-error {
+            color: #EF4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-amber-50">
+    <div class="auth-container min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="form-container w-full max-w-md p-8 z-10">
+            <div class="text-center mb-8">
+                <img src="/api/placeholder/150/80" alt="Visit Sabang Logo" class="h-16 mx-auto mb-4">
+                <h2 class="text-3xl font-bold text-gray-900">Selamat Datang di Visit Sabang</h2>
+                <p class="mt-2 text-gray-600">Jelajahi keindahan Sabang bersama kami</p>
+            </div>
+
+            <!-- Auth Tabs -->
+            <div class="flex mb-6">
+                <button id="loginTab" class="auth-tab flex-1 py-2 text-center font-medium rounded-tl-lg rounded-bl-lg active">Login</button>
+                <button id="registerTab" class="auth-tab flex-1 py-2 text-center font-medium rounded-tr-lg rounded-br-lg bg-gray-200">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <div class="mb-4">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" class="input-field w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Email">
+                    </div>
+                    <div class="form-error" id="loginEmailError">Email tidak valid</div>
+                </div>
+                <div class="mb-6">
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" class="input-field w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Password">
+                        <i class="fas fa-eye password-toggle" id="loginPasswordToggle"></i>
+                    </div>
+                    <div class="form-error" id="loginPasswordError">Password tidak valid</div>
+                </div>
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center">
+                        <input id="remember" type="checkbox" class="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded">
+                        <label for="remember" class="ml-2 block text-sm text-gray-700">Ingat saya</label>
+                    </div>
+                    <div>
+                        <a href="#" class="text-sm text-amber-600 hover:text-amber-500">Lupa password?</a>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-amber-400 text-black py-3 px-4 rounded-md hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition-colors font-medium btn-amber">
+                    Login
+                </button>
+                <div class="text-center mt-4">
+                    <p class="text-sm text-gray-600">
+                        Belum memiliki akun? 
+                        <a href="#" id="switchToRegister" class="text-amber-600 hover:text-amber-500">Register sekarang</a>
+                    </p>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form">
+                <div class="mb-4">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerName" class="input-field w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Nama Lengkap">
+                    </div>
+                    <div class="form-error" id="registerNameError">Nama tidak boleh kosong</div>
+                </div>
+                <div class="mb-4">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" class="input-field w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Email">
+                    </div>
+                    <div class="form-error" id="registerEmailError">Email tidak valid</div>
+                </div>
+                <div class="mb-4">
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="registerPhone" class="input-field w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Nomor Telepon">
+                    </div>
+                    <div class="form-error" id="registerPhoneError">Nomor telepon tidak valid</div>
+                </div>
+                <div class="mb-4">
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" class="input-field w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Password">
+                        <i class="fas fa-eye password-toggle" id="registerPasswordToggle"></i>
+                    </div>
+                    <div class="form-error" id="registerPasswordError">Password minimal 8 karakter</div>
+                </div>
+                <div class="mb-6">
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerConfirmPassword" class="input-field w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Konfirmasi Password">
+                        <i class="fas fa-eye password-toggle" id="registerConfirmPasswordToggle"></i>
+                    </div>
+                    <div class="form-error" id="registerConfirmPasswordError">Password tidak sama</div>
+                </div>
+                <div class="flex items-center mb-6">
+                    <input id="terms" type="checkbox" class="h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded">
+                    <label for="terms" class="ml-2 block text-sm text-gray-700">
+                        Saya menyetujui <a href="#" class="text-amber-600 hover:text-amber-500">syarat dan ketentuan</a>
+                    </label>
+                </div>
+                <button type="submit" class="w-full bg-amber-400 text-black py-3 px-4 rounded-md hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition-colors font-medium btn-amber">
+                    Register
+                </button>
+                <div class="text-center mt-4">
+                    <p class="text-sm text-gray-600">
+                        Sudah memiliki akun? 
+                        <a href="#" id="switchToLogin" class="text-amber-600 hover:text-amber-500">Login sekarang</a>
+                    </p>
+                </div>
+            </form>
+            
+            <!-- Social Login -->
+            <div class="mt-8">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-4 bg-white text-gray-500">Atau login dengan</span>
+                    </div>
+                </div>
+                <div class="mt-6 grid grid-cols-2 gap-3">
+                    <button type="button" class="flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        <i class="fab fa-google text-red-500 mr-2"></i> Google
+                    </button>
+                    <button type="button" class="flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        <i class="fab fa-facebook-f text-blue-600 mr-2"></i> Facebook
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
