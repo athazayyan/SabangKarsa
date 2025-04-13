@@ -465,4 +465,65 @@ document.addEventListener('DOMContentLoaded', function() {
             return `${year}-${month}-${day}`;
         }
     }
+
+    // ===== Auth related functionality =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if user is logged in
+    const userLoggedIn = localStorage.getItem('userLoggedIn') === 'true';
+    const userProfileContainer = document.querySelector('.user-profile-container');
+    const loginButton = document.querySelector('.btn-amber');
+    const userNameElement = document.querySelector('.user-name');
+    
+    if (userLoggedIn) {
+        // Show user profile instead of login button
+        if (userProfileContainer) {
+            userProfileContainer.style.display = 'block';
+            
+            // Set user name
+            const userName = localStorage.getItem('userName') || localStorage.getItem('userEmail').split('@')[0];
+            if (userNameElement) {
+                userNameElement.textContent = userName;
+            }
+            
+            // Hide login button if it's the "PESAN SEKARANG" button
+            if (loginButton && loginButton.textContent.trim() === 'PESAN SEKARANG') {
+                loginButton.textContent = 'EXPLORE NOW';
+            }
+        }
+        
+        // User dropdown toggle
+        const userMenuButton = document.getElementById('userMenuButton');
+        const userDropdown = document.getElementById('userDropdown');
+        
+        if (userMenuButton && userDropdown) {
+            userMenuButton.addEventListener('click', function() {
+                userDropdown.classList.toggle('hidden');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!userMenuButton.contains(event.target) && !userDropdown.contains(event.target)) {
+                    userDropdown.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Logout functionality
+        const logoutButton = document.querySelector('.logout-button');
+        if (logoutButton) {
+            logoutButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('userLoggedIn');
+                localStorage.removeItem('userName');
+                localStorage.removeItem('userEmail');
+                window.location.href = 'login.html';
+            });
+        }
+    } else {
+        // Redirect to login page if not on login page
+        if (!window.location.pathname.includes('login.html')) {
+            window.location.href = 'login.html';
+        }
+    }
+});
 });
