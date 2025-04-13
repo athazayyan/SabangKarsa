@@ -1,0 +1,145 @@
+/* Tailwind is already included via CDN in the HTML file */
+
+/* Custom styles beyond Tailwind */
+:root {
+    --primary-color: #F59E0B;
+    --dark-color: #111827;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+header {
+    background-color: var(--dark-color);
+}
+
+/* Animation styles */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero image overlay gradient */
+.hero-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+}
+
+/* Custom button hover effects */
+.btn-amber {
+    background-color: var(--primary-color);
+    color: black;
+    transition: all 0.3s ease;
+}
+
+.btn-amber:hover {
+    background-color: #E59000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Image hover effects */
+.image-card {
+    overflow: hidden;
+}
+
+.image-card img {
+    transition: transform 0.5s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Caption overlay fade effect */
+.caption-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%);
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.image-card:hover .caption-overlay {
+    opacity: 1;
+}
+
+/* Navbar active link */
+.nav-link.active {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Language switcher styling */
+.lang-switcher {
+    border: 1px solid white;
+    border-radius: 9999px;
+    padding: 0.25rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Newsletter input focus */
+.newsletter-input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Footer link hover effect */
+.footer-link {
+    position: relative;
+}
+
+.footer-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover:after {
+    width: 100%;
+}
+
+/* Cookie notice styling */
+#cookieNotice {
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--dark-color);
+    z-index: 100;
+    padding: 2rem;
+    transition: right 0.3s ease;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+/* Dot indicators for slider */
+.dot-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.dot-indicator.active {
+    opacity: 1;
+}

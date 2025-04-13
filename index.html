@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frans Hals Museum - Haarlem</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50">
+    <!-- Navigation Bar -->
+    <header class="bg-dark bg-opacity-90 fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="flex items-center">
+                <div class="bg-white p-2">
+                    <a href="/" class="block">
+                        <img src="/api/placeholder/150/80" alt="Frans Hals Museum Logo" class="h-16">
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8 ml-8">
+                    <a href="#" class="text-white font-medium">BEZOEK</a>
+                    <a href="#" class="text-white font-medium">ZIEN & DOEN</a>
+                    <a href="#" class="text-white font-medium">COLLECTIE</a>
+                    <a href="#" class="text-white font-medium">OVER ONS</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:block">
+                    <button class="text-sm rounded-full px-4 py-1 border border-white text-white">
+                        <span>NL</span>
+                        <span class="mx-1">|</span>
+                        <span>EN</span>
+                    </button>
+                </div>
+                <button class="bg-amber-400 text-black px-6 py-2 rounded hover:bg-amber-500 transition">KOOP TICKETS</button>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24">
+        <div class="relative h-screen">
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <img src="/api/placeholder/1920/1080" alt="Gezichten van Noord-Holland" class="w-full h-full object-cover">
+            <div class="absolute inset-0 flex items-center z-20">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-3xl">
+                        <span class="bg-white text-black px-4 py-1 inline-block mb-4">NU TE ZIEN</span>
+                        <h1 class="text-white text-5xl md:text-6xl font-bold mb-4">GEZICHTEN VAN NOORD-HOLLAND</h1>
+                        <p class="text-white text-xl mb-8">Nieuwe portretten uit de provincie</p>
+                        <a href="#" class="bg-amber-400 text-black px-6 py-3 rounded hover:bg-amber-500 transition inline-block font-medium">OVER DE TENTOONSTELLING</a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-6 right-6 z-20 flex space-x-2">
+                <span class="w-3 h-3 bg-white rounded-full opacity-100"></span>
+                <span class="w-3 h-3 bg-white rounded-full opacity-50"></span>
+                <span class="w-3 h-3 bg-white rounded-full opacity-50"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-stretch">
+            <div class="lg:w-1/2 mb-10 lg:mb-0">
+                <img src="/api/placeholder/800/600" alt="Museum Exhibition" class="rounded-lg shadow-lg h-full object-cover">
+            </div>
+            <div class="lg:w-1/2 lg:pl-16 bg-gray-900 text-white p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-6 text-amber-400">WELKOM IN HET FRANS HALS MUSEUM!</h2>
+                <p class="mb-6">Het Frans Hals Museum is het kunstmuseum van Haarlem. Hier vind je de grootste collectie schilderijen van Frans Hals ter wereld naast werk van andere beroemde Haarlemse kunstenaars zoals Judith Leyster, Cornelis van Haarlem en Jacob van Ruisdael.</p>
+                <p class="mb-8">Maar je ontdekt er ook een rijke verzameling kunst van 1880 tot nu, waaronder werk van Isaac Israels, Charley Toorop, en Dana Lixenberg.</p>
+                <p class="mb-8">Ontmoet 16de en 17de-eeuwse, moderne en hedendaagse kunst in twee schitterende historische gebouwen in de oude binnenstad van Haarlem.</p>
+                <a href="#" class="bg-amber-400 text-black px-6 py-3 rounded hover:bg-amber-500 transition inline-block font-medium">PLAN JE BEZOEK</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Highlights -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-4xl font-bold">ONZE TOPSTUKKEN</h2>
+                <a href="#" class="bg-white border border-gray-300 px-6 py-2 rounded hover:bg-gray-100 transition">ONTDEK DE COLLECTIE</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Art Piece 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Ferdinand Erfmann - Danscafé" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+                            <h3 class="text-white font-bold">FERDINAND ERFMANN (ROTTERDAM 1901 - SARDINIË 1968)</h3>
+                            <p class="text-white">Danscafé</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Art Piece 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Jan Steen - Boerenkermis" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+                            <h3 class="text-white font-bold">JAN STEEN (LEIDEN 1626 - LEIDEN 1679)</h3>
+                            <p class="text-white">Boerenkermis</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Art Piece 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Dirck Hals - Musicerend gezelschap op terras" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+                            <h3 class="text-white font-bold">DIRCK HALS (HAARLEM, 1591 - HAARLEM, 1656)</h3>
+                            <p class="text-white">Musicerend gezelschap op terras</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Art Piece 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Charley Toorop - Dame met zwarte hoed" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+                            <h3 class="text-white font-bold">CHARLEY TOOROP (KATWIJK, 1891 - BERGEN, 1955)</h3>
+                            <p class="text-white">Dame met zwarte hoed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <button class="bg-transparent mx-2 p-2 text-gray-700 hover:text-amber-500 transition" id="prevCollection">
+                    <i class="fas fa-arrow-left text-2xl"></i>
+                </button>
+                <button class="bg-transparent mx-2 p-2 text-gray-700 hover:text-amber-500 transition" id="nextCollection">
+                    <i class="fas fa-arrow-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 mb-10 lg:mb-0">
+                <img src="/api/placeholder/800/600" alt="Visit Museum" class="rounded-lg shadow-lg">
+            </div>
+            <div class="lg:w-1/2 lg:pl-16 bg-gray-900 text-white p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-6 text-amber-400">KOM BIJ ONS LANGS</h2>
+                <ul class="mb-8 space-y-4">
+                    <li class="flex items-start">
+                        <span class="mr-2 mt-1 text-amber-400">•</span> 
+                        <span>In de historische binnenstad van Haarlem</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 mt-1 text-amber-400">•</span> 
+                        <span>Meeste schilderijen van Frans Hals ter wereld</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 mt-1 text-amber-400">•</span> 
+                        <span>Gratis audiotour en Frans Hals podwalk</span>
+                    </li>
+                </ul>
+                <a href="#" class="bg-amber-400 text-black px-6 py-3 rounded hover:bg-amber-500 transition inline-block font-medium">BESTEL TICKETS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Activities -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12">VOOR FAMILIES & KINDEREN</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Activity 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Activity 1" class="w-full h-56 object-cover">
+                        <span class="absolute top-4 left-4 bg-gray-900 text-white text-xs px-3 py-1 rounded">ACTIVITEIT</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">DE DIKKE DOE- EN LUISTERTOUR</h3>
+                        <p class="text-gray-700">Ontdek het museum met deze interactieve tour voor kinderen.</p>
+                    </div>
+                </div>
+                <!-- Activity 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Activity 2" class="w-full h-56 object-cover">
+                        <span class="absolute top-4 left-4 bg-gray-900 text-white text-xs px-3 py-1 rounded">ACTIVITEIT</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">SPEURTOCHT</h3>
+                        <p class="text-gray-700">Een spannende speurtocht door het museum voor jonge ontdekkers.</p>
+                    </div>
+                </div>
+                <!-- Activity 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Activity 3" class="w-full h-56 object-cover">
+                        <span class="absolute top-4 left-4 bg-gray-900 text-white text-xs px-3 py-1 rounded">ACTIVITEIT</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">PORTRET TEKENEN</h3>
+                        <p class="text-gray-700">Leer portrettekenen zoals de meesters uit de Gouden Eeuw.</p>
+                    </div>
+                </div>
+                <!-- Activity 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="/api/placeholder/400/300" alt="Activity 4" class="w-full h-56 object-cover">
+                        <span class="absolute top-4 left-4 bg-gray-900 text-white text-xs px-3 py-1 rounded">ACTIVITEIT</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">VERKLEED JE ALS SCHUTTER</h3>
+                        <p class="text-gray-700">Maak je eigen schuttersportret in historische kostuums.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- May Vacation -->
+    <section class="py-16 bg-amber-50">
+        <div class="relative">
+            <img src="/api/placeholder/1920/600" alt="Meivakantie" class="w-full h-96 object-cover">
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <div class="absolute inset-0 z-20 flex items-center">
+                <div class="container mx-auto px-6">
+                    <span class="bg-white text-black px-4 py-1 inline-block mb-4">FAMILIES & KINDEREN</span>
+                    <h2 class="text-white text-4xl md:text-5xl font-bold mb-4">MEIVAKANTIE IN HET FRANS HALS MUSEUM</h2>
+                    <p class="text-white text-xl mb-8">Van 26 april t/m 4 mei</p>
+                    <a href="#" class="bg-amber-400 text-black px-6 py-3 rounded hover:bg-amber-500 transition inline-block font-medium">WAT IS ER TE DOEN?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="bg-gray-900 text-white p-8 md:p-12 rounded-lg">
+                <div class="max-w-2xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-6">BLIJF OP DE HOOGTE</h2>
+                    <p class="mb-8">Meld je aan voor onze nieuwsbrief</p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <input type="email" placeholder="voorbeeld@email.nl" class="px-4 py-3 rounded flex-grow md:max-w-md text-black">
+                        <button class="bg-amber-400 text-black px-6 py-3 rounded hover:bg-amber-500 transition font-medium">AANMELDEN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Museum Information -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">FRANS HALS MUSEUM</h3>
+                    <p class="mb-4">Groot Heiligland 62, Haarlem</p>
+                    <p class="mb-8">Dinsdag t/m zondag geopend<br>van 11:00 - 17:00 uur</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">LOCATIE HAL</h3>
+                    <p class="mb-4">Grote Markt 16, Haarlem</p>
+                    <p class="mb-8">Tijdelijke tentoonstellingen met<br>moderne en hedendaagse kunst</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h4 class="font-bold mb-4">STEUN ONS</h4>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">NIEUWS</h4>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">WERKEN BIJ</h4>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">CONTACT</h4>
+                </div>
+            </div>
+            <div class="mt-16 flex flex-col md:flex-row md:justify-between md:items-center space-y-6 md:space-y-0">
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white hover:text-amber-400">Algemene voorwaarden</a>
+                    <a href="#" class="text-white hover:text-amber-400">Privacy statement</a>
+                    <a href="#" class="text-white hover:text-amber-400">Colofon</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-linkedin-in text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-youtube text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Notice -->
+    <div id="cookieNotice" class="fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white py-6 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0 md:max-w-2xl">
+                <h3 class="font-bold text-lg mb-2">COOKIES</h3>
+                <p>Om de website goed te laten werken, het gebruik te meten en om bijv. relevante advertenties te tonen, gebruiken we cookies. Klik je op 'Akkoord', dan accepteer je alle cookies. Liever niet? Dan plaatsen we alleen functionele en anonieme analytische cookies.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <button id="acceptCookies" class="bg-amber-400 text-black px-6 py-3 rounded hover:bg-amber-500 transition">AKKOORD</button>
+                <button id="rejectCookies" class="bg-transparent border border-white text-white px-6 py-3 rounded hover:bg-gray-800 transition">NEE, LIEVER NIET</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
