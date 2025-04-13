@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Driver Lokal Sabang - Visit Sabang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50">
+    <!-- Navigation Bar -->
+    <header class="bg-dark bg-opacity-90 fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="flex items-center">
+                <div class="bg-white p-2">
+                    <a href="index.html" class="block">
+                        <img src="/api/placeholder/150/80" alt="Visit Sabang Logo" class="h-16">
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8 ml-8">
+                    <a href="destinations.html" class="text-white font-medium nav-link">DESTINASI</a>
+                    <a href="accommodations.html" class="text-white font-medium nav-link">PENGINAPAN</a>
+                    <a href="drivers.html" class="text-white font-medium nav-link active">DRIVER</a>
+                    <a href="about.html" class="text-white font-medium nav-link">TENTANG KAMI</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:block">
+                    <button class="text-sm rounded-full px-4 py-1 border border-white text-white">
+                        <span>ID</span>
+                        <span class="mx-1">|</span>
+                        <span>EN</span>
+                    </button>
+                </div>
+                <button class="bg-amber-400 text-black px-6 py-2 rounded hover:bg-amber-500 transition btn-amber">PESAN SEKARANG</button>
+                <button class="md:hidden text-white" id="mobileMenuButton">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="absolute top-4 right-4 text-white" id="closeMenu">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        <div class="flex flex-col space-y-6 mt-12">
+            <a href="destinations.html" class="text-white font-medium text-xl">DESTINASI</a>
+            <a href="accommodations.html" class="text-white font-medium text-xl">PENGINAPAN</a>
+            <a href="drivers.html" class="text-white font-medium text-xl">DRIVER</a>
+            <a href="about.html" class="text-white font-medium text-xl">TENTANG KAMI</a>
+            <div class="mt-4">
+                <button class="text-sm rounded-full px-4 py-1 border border-white text-white">
+                    <span>ID</span>
+                    <span class="mx-1">|</span>
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-24">
+        <div class="relative h-96">
+            <div class="absolute inset-0 bg-black/40 z-10 hero-overlay"></div>
+            <img src="/api/placeholder/1920/800" alt="Driver Sabang" class="w-full h-full object-cover">
+            <div class="absolute inset-0 flex items-center z-20">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-3xl animate-on-scroll">
+                        <h1 class="text-white text-5xl md:text-6xl font-bold mb-4">DRIVER LOKAL SABANG</h1>
+                        <p class="text-white text-xl mb-8">Temukan driver berpengalaman untuk menjelajahi seluruh keindahan Sabang</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="py-8 bg-white shadow-md">
+        <div class="container mx-auto px-6">
+            <form class="max-w-4xl mx-auto animate-on-scroll">
+                <h2 class="text-2xl font-bold mb-6">Cari Driver Sesuai Kebutuhan</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label for="date" class="block text-gray-700 mb-2">Tanggal</label>
+                        <input type="date" id="date" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label for="duration" class="block text-gray-700 mb-2">Durasi</label>
+                        <select id="duration" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-400">
+                            <option value="">Pilih Durasi</option>
+                            <option value="half-day">Half Day (4-6 jam)</option>
+                            <option value="full-day">Full Day (8-10 jam)</option>
+                            <option value="multi-day">Multi Day</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="passengers" class="block text-gray-700 mb-2">Jumlah Penumpang</label>
+                        <select id="passengers" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-400">
+                            <option value="">Pilih Jumlah</option>
+                            <option value="1-2">1-2 Orang</option>
+                            <option value="3-4">3-4 Orang</option>
+                            <option value="5-6">5-6 Orang</option>
+                            <option value="7+">7+ Orang</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="destination" class="block text-gray-700 mb-2">Destinasi yang Ingin Dikunjungi</label>
+                    <input type="text" id="destination" placeholder="Contoh: Pantai Iboih, Kilometer Nol, dll" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-400">
+                </div>
+                <div class="mt-6 flex justify-center">
+                    <button type="submit" class="bg-amber-400 text-black px-8 py-3 rounded hover:bg-amber-500 transition font-medium btn-amber">CARI DRIVER</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Drivers -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center animate-on-scroll">Mengapa Memilih Driver Kami?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg animate-on-scroll">
+                    <div class="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-user-check text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Terverifikasi</h3>
+                    <p class="text-gray-700 text-center">Semua driver kami telah melalui verifikasi identitas dan memiliki izin resmi</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg animate-on-scroll">
+                    <div class="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marked-alt text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Pengetahuan Lokal</h3>
+                    <p class="text-gray-700 text-center">Familiar dengan semua lokasi, jalur terbaik, dan spot tersembunyi di Sabang</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg animate-on-scroll">
+                    <div class="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hand-holding-usd text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Harga Transparan</h3>
+                    <p class="text-gray-700 text-center">Tidak ada biaya tambahan tersembunyi, apa yang Anda lihat adalah yang Anda bayar</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg animate-on-scroll">
+                    <div class="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-language text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Bahasa</h3>
+                    <p class="text-gray-700 text-center">Sebagian besar driver kami fasih berbicara Bahasa Indonesia dan Inggris dasar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Drivers -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center animate-on-scroll">Driver Tersedia</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Driver 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-on-scroll">
+                    <div class="p-6">
+                        <div class="flex items-start">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mr-4 bg-gray-200">
+                                <img src="/api/placeholder/150/150?driver1" alt="Driver" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Ahmad Rizal</h3>
+                                <div class="flex text-amber-400 text-sm mb-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-600 ml-1">4.5 (120 ulasan)</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                                    <span>Driver Sejak 2018</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Bahasa Inggris</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Tour Guide</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Mobil Ber-AC</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 text-sm">Saya lahir dan besar di Sabang, mengenal semua destinasi wisata baik yang populer maupun yang tersembunyi. Saya siap mengantarkan Anda ke tempat-tempat terbaik di Pulau Weh dengan aman dan nyaman.</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-lg">Rp 500.000</span>
+                                    <span class="text-gray-600 text-sm">/ hari</span>
+                                </div>
+                                <button class="bg-amber-400 text-black px-4 py-2 rounded hover:bg-amber-500 transition text-sm btn-amber">Hubungi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Driver 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-on-scroll">
+                    <div class="p-6">
+                        <div class="flex items-start">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mr-4 bg-gray-200">
+                                <img src="/api/placeholder/150/150?driver2" alt="Driver" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Rudi Saputra</h3>
+                                <div class="flex text-amber-400 text-sm mb-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-gray-600 ml-1">5.0 (85 ulasan)</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                                    <span>Driver Sejak 2020</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Bahasa Inggris</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Fotografi</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Mobil 6 Penumpang</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 text-sm">Mantan fotografer profesional yang kini menjadi driver wisata. Selain mengantarkan ke lokasi wisata, saya juga bisa membantu Anda mengambil foto yang instagramable di spot-spot terbaik Sabang.</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-lg">Rp 600.000</span>
+                                    <span class="text-gray-600 text-sm">/ hari</span>
+                                </div>
+                                <button class="bg-amber-400 text-black px-4 py-2 rounded hover:bg-amber-500 transition text-sm btn-amber">Hubungi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Driver 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-on-scroll">
+                    <div class="p-6">
+                        <div class="flex items-start">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mr-4 bg-gray-200">
+                                <img src="/api/placeholder/150/150?driver3" alt="Driver" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Siti Nurhaliza</h3>
+                                <div class="flex text-amber-400 text-sm mb-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="text-gray-600 ml-1">4.0 (62 ulasan)</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                                    <span>Driver Sejak 2021</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Bahasa Inggris</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Kuliner Lokal</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Mobil Ber-AC</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 text-sm">Driver wanita yang ahli tentang kuliner lokal Sabang. Selama perjalanan, saya akan membawa Anda ke tempat-tempat makan terbaik dengan hidangan khas Aceh yang autentik dan lezat.</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-lg">Rp 450.000</span>
+                                    <span class="text-gray-600 text-sm">/ hari</span>
+                                </div>
+                                <button class="bg-amber-400 text-black px-4 py-2 rounded hover:bg-amber-500 transition text-sm btn-amber">Hubungi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Driver 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-on-scroll">
+                    <div class="p-6">
+                        <div class="flex items-start">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mr-4 bg-gray-200">
+                                <img src="/api/placeholder/150/150?driver4" alt="Driver" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Budi Santoso</h3>
+                                <div class="flex text-amber-400 text-sm mb-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-600 ml-1">4.7 (95 ulasan)</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                                    <span>Driver Sejak 2017</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Bahasa Inggris</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Sejarah</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">SUV</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 text-sm">Saya memiliki pengetahuan mendalam tentang sejarah Sabang dan Aceh. Perjalanan bersama saya tidak hanya wisata biasa, tetapi juga pembelajaran tentang sejarah dan budaya daerah ini.</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-lg">Rp 550.000</span>
+                                    <span class="text-gray-600 text-sm">/ hari</span>
+                                </div>
+                                <button class="bg-amber-400 text-black px-4 py-2 rounded hover:bg-amber-500 transition text-sm btn-amber">Hubungi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Driver 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-on-scroll">
+                    <div class="p-6">
+                        <div class="flex items-start">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mr-4 bg-gray-200">
+                                <img src="/api/placeholder/150/150?driver5" alt="Driver" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Rahmat Hidayat</h3>
+                                <div class="flex text-amber-400 text-sm mb-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="text-gray-600 ml-1">4.0 (50 ulasan)</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                                    <span>Driver Sejak 2019</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Bahasa Inggris</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Adventure</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Jeep</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 text-sm">Spesialis tur petualangan dengan kendaraan Jeep yang siap menjelajahi area off-road. Cocok untuk Anda yang ingin menjelajahi area-area yang tidak bisa diakses dengan kendaraan biasa.</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-lg">Rp 700.000</span>
+                                    <span class="text-gray-600 text-sm">/ hari</span>
+                                </div>
+                                <button class="bg-amber-400 text-black px-4 py-2 rounded hover:bg-amber-500 transition text-sm btn-amber">Hubungi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Driver 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg animate-on-scroll">
+                    <div class="p-6">
+                        <div class="flex items-start">
+                            <div class="w-20 h-20 rounded-full overflow-hidden mr-4 bg-gray-200">
+                                <img src="/api/placeholder/150/150?driver6" alt="Driver" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Maya Indriani</h3>
+                                <div class="flex text-amber-400 text-sm mb-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-gray-600 ml-1">5.0 (42 ulasan)</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                                    <span>Driver Sejak 2022</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 border-t border-gray-200 pt-4">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Bahasa Inggris</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">Bahasa Jepang</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">MPV</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 text-sm">Driver wanita yang fasih berbahasa Inggris dan Jepang. Pernah tinggal di Jepang selama 5 tahun dan memiliki pengalaman sebagai pemandu wisata. Sangat cocok untuk wisatawan asing.</p>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="font-bold text-lg">Rp 650.000</span>
+                                    <span class="text-gray-600 text-sm">/ hari</span>
+                                </div>
+                                <button class="bg-amber-400 text-black px-4 py-2 rounded hover:bg-amber-500 transition text-sm btn-amber">Hubungi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-4 py-2 rounded border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">Sebelumnya</a>
+                    <a href="#" class="px-4 py-2 rounded border border-amber-400 bg-amber-400 text-black font-medium">1</a>
+                    <a href="#" class="px-4 py-2 rounded border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 rounded border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">3</a>
+                    <a href="#" class="px-4 py-2 rounded border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">Selanjutnya</a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center animate-on-scroll">Testimoni Pelanggan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex text-amber-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Pak Ahmad sangat berpengalaman, ramah, dan sabar. Beliau menunjukkan tempat-tempat indah yang tidak ada di Google Maps. Pengetahuan lokalnya sangat berharga untuk perjalanan kami di Sabang."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200">
+                            <img src="/api/placeholder/100/100?testi1" alt="User" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Indra Kusuma</h4>
+                            <p class="text-gray-600 text-sm">Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex text-amber-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Pengalaman luar biasa dengan Ibu Siti. Beliau tidak hanya mengantarkan kami ke tempat-tempat wisata, tapi juga memperkenalkan kuliner khas Sabang yang enak-enak. Sangat direkomendasikan!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200">
+                            <img src="/api/placeholder/100/100?testi2" alt="User" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Dewi Anggraini</h4>
+                            <p class="text-gray-600 text-sm">Surabaya</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex text-amber-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Mas Rudi sangat membantu! Sebagai fotografer, dia memberikan tips foto terbaik di setiap lokasi. Kami mendapatkan foto-foto luar biasa berkat bantuannya. Mobil yang digunakan juga sangat nyaman."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200">
+                            <img src="/api/placeholder/100/100?testi3" alt="User" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Dian Sastro</h4>
+                            <p class="text-gray-600 text-sm">Bandung</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Become a Driver -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-lg overflow-hidden shadow-xl animate-on-scroll">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-amber-400 p-8 flex items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-4 text-black">Menjadi Driver Visit Sabang</h2>
+                            <p class="text-black mb-6">Gabung dengan jaringan driver kami dan dapatkan akses ke lebih banyak pelanggan potensial. Tingkatkan pendapatan Anda dengan membantu wisatawan menjelajahi Sabang.</p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-black mr-2"></i>
+                                    <span class="text-black">Jadwal fleksibel</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-black mr-2"></i>
+                                    <span class="text-black">Penghasilan tambahan</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-black mr-2"></i>
+                                    <span class="text-black">Dukungan pemasaran</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-xl font-bold mb-6">Daftar Sekarang</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">Nama Lengkap</label>
+                                <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-400">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 mb-2">Nomor Telepon</label>
+                                <input type="text" id="phone" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-400">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-400">
+                            </div>
+                            <div class="mb-4">
+                                <label for="vehicle" class="block text-gray-700 mb-2">Jenis Kendaraan</label>
+                                <select id="vehicle" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-amber-400">
+                                    <option value="">Pilih Kendaraan</option>
+                                    <option value="mobil">Mobil</option>
+                                    <option value="suv">SUV</option>
+                                    <option value="mpv">MPV</option>
+                                    <option value="jeep">Jeep</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button type="submit" class="bg-amber-400 text-black px-6 py-3 rounded hover:bg-amber-500 transition font-medium w-full btn-amber">DAFTAR</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h4 class="font-bold mb-4">TENTANG KAMI</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">Visi & Misi</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">Tim Kami</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">Karir</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">LAYANAN</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">Paket Wisata</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">Reservasi Penginapan</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">Sewa Driver</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">INFORMASI</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white footer-link">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">KONTAK</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-amber-400"></i> Jl. Perdagangan, Sabang, Aceh</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-2 text-amber-400"></i> +62 852-XXXX-XXXX</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2 text-amber-400"></i> info@visitsabang.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 flex flex-col md:flex-row md:justify-between md:items-center space-y-6 md:space-y-0">
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white hover:text-amber-400 footer-link">Syarat & Ketentuan</a>
+                    <a href="#" class="text-white hover:text-amber-400 footer-link">Kebijakan Privasi</a>
+                    <a href="#" class="text-white hover:text-amber-400 footer-link">Peta Situs</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-white hover:text-amber-400"><i class="fab fa-youtube text-xl"></i></a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400">
+                <p>&copy; 2025 Visit Sabang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Notice -->
+    <div id="cookieNotice" class="fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white py-6 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0 md:max-w-2xl">
+                <h3 class="font-bold text-lg mb-2">COOKIES</h3>
+                <p>Kami menggunakan cookies untuk meningkatkan pengalaman pengguna, menganalisis lalu lintas situs, dan menampilkan konten yang relevan. Dengan mengklik 'Terima', Anda menyetujui penggunaan cookies sesuai kebijakan privasi kami.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <button id="acceptCookies" class="bg-amber-400 text-black px-6 py-3 rounded hover:bg-amber-500 transition btn-amber">TERIMA</button>
+                <button id="rejectCookies" class="bg-transparent border border-white text-white px-6 py-3 rounded hover:bg-gray-800 transition">TOLAK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
