@@ -111,6 +111,12 @@ header {
 /* Cookie notice styling */
 #cookieNotice {
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+}
+
+#cookieNotice.hidden {
+    transform: translateY(100%);
 }
 
 /* Mobile menu */
@@ -138,6 +144,7 @@ header {
     background-color: white;
     opacity: 0.5;
     transition: opacity 0.3s ease;
+    cursor: pointer;
 }
 
 .dot-indicator.active {
