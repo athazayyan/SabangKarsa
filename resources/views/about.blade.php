@@ -148,7 +148,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-bold mb-1">Email</h3>
-                                    <p class="text-gray-300">info@visitsabang.com</p>
+                                    <p class="text-gray-300">info@SabangKarsa.com</p>
                                 </div>
                             </div>
 
