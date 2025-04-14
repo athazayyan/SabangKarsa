@@ -30,8 +30,8 @@
                 <h4 class="font-bold mb-4">KONTAK</h4>
                 <ul class="space-y-2">
                     <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-amber-400"></i> Jl. Perdagangan, Sabang, Aceh</li>
-                    <li class="flex items-center"><i class="fas fa-phone mr-2 text-amber-400"></i> +62 852-XXXX-XXXX</li>
-                    <li class="flex items-center"><i class="fas fa-envelope mr-2 text-amber-400"></i> info@visitsabang.com</li>
+                    <li class="flex items-center"><i class="fas fa-phone mr-2 text-amber-400"></i> +62 852-980-4232</li>
+                    <li class="flex items-center"><i class="fas fa-envelope mr-2 text-amber-400"></i> info@SabangKarsa.com</li>
                 </ul>
             </div>
         </div>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="mt-8 text-center text-gray-400">
-            <p>&copy; 2025 Visit Sabang. All rights reserved.</p>
+            <p>&copy; 2025 SabangKarsa. All rights reserved.</p>
         </div>
     </div>
 </footer>

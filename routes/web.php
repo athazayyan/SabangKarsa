@@ -54,3 +54,12 @@ Route::get('/login', function () {
 })->name('login');
 
 
+Route::get('/loginp', function () {
+    return view('loginp');
+})->name('loginp');
+
+
+Route::get('/daftar', function () {
+    return view('daftar');
+})->name('daftar');
+
